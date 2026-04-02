@@ -42,3 +42,20 @@ Para ello, en el `controlador_desafío` se puede modificar la variable `FIGURA` 
 Esto provoca un ciclo entre estados que permite trazar la figura del cuadrado.
 
 >Se puede visualizar esta prueba del cuadrado en el archivo `demo_cuadrado.mp4` o las otras figuras en la carpeta `media`.
+
+## Preguntas de análisis
+- ¿Qué ocurre cuando ambas ruedas tienen la misma velocidad?
+  
+R: Cuando la velocidad de la rueda izquierda es la misma que la rueda derecha (o viceversa) y ambas giran en el mismo sentido, esto provoca que el robot experimente un movimiento de traslación en línea recta, es decir, se moverá hacia adelante o hacia atrás, dependiendo del signo de las velocidades.
+
+- ¿Cómo cambia la trayectoria cuando las velocidades son diferentes?
+
+R: Cuando las velocidades de la rueda izquierda y derecha son diferentes, el movimiento del robot se realiza en una trayectoria curva. Siempre girará en dirección hacia la rueda más lenta y mientras mayor sea la diferencia de velocidades entre ruedas, más cerrado será el giro.
+
+- ¿Qué ocurre cuando una rueda gira en sentido opuesto a la otra?
+
+R: Cuando las ruedas giran en sentido opuesto a la otra y con la misma magnitud se produce una rotación en el lugar, con centro en el punto medio del eje que une ambas ruedas, alterando la orientación del robot sin moverlo de su lugar.
+
+- ¿Qué tipo de movimiento permite dibujar un círculo?
+
+R: Para poder dibujar un círculo, 
