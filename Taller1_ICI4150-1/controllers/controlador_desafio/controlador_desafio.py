@@ -45,14 +45,14 @@ while robot.step(TIME_STEP) != -1:
             v_r = MAX_SPEED * 0.5   
     # ----------------------------------------------------
     elif FIGURA == "OCHO":
-        # Se usa el operador módulo (%) para alternar cada 6 segundos
-        if (tiempo_actual % 12.0) < 6.0:
-            v_l = MAX_SPEED * 0.8
-            v_r = MAX_SPEED * 0.3  # Medio círculo a la derecha
+        periodo = 8.0
+        # Se usa el operador módulo (%) para alternar cada 8 segundos
+        if (tiempo_actual % periodo) < (periodo / 2):
+            v_l = MAX_SPEED * 0.5
+            v_r = MAX_SPEED * 0.2  # Medio círculo a la derecha
         else:
-            v_l = MAX_SPEED * 0.3
-            v_r = MAX_SPEED * 0.8  # Medio círculo a la izquierda
-            
+            v_l = MAX_SPEED * 0.2
+            v_r = MAX_SPEED * 0.5  # Medio círculo a la izquierda
     # ----------------------------------------------------
     elif FIGURA == "CUADRADO":
         tiempo_transcurrido = tiempo_actual - ultimo_cambio_tiempo
@@ -62,17 +62,17 @@ while robot.step(TIME_STEP) != -1:
             v_l = MAX_SPEED * 0.5
             v_r = MAX_SPEED * 0.5
             
-            # Después de 2 segundos, cambia de estado (comienza a girar)
-            if tiempo_transcurrido > 2.0:
+            # Después de 2 segundos, cambia de estado 
+            if tiempo_transcurrido > 2.5:
                 estado_cuadrado += 1
                 ultimo_cambio_tiempo = tiempo_actual
                 
         # Si el estado es un número impar, gira en el lugar
         else:
-            v_l = -MAX_SPEED * 0.2
-            v_r =  MAX_SPEED * 0.2
+            v_l = -MAX_SPEED * 0.5
+            v_r =  MAX_SPEED * 0.5
             
-            if tiempo_transcurrido > 1.25:
+            if tiempo_transcurrido > 0.8:
                 estado_cuadrado += 1
                 ultimo_cambio_tiempo = tiempo_actual
 
