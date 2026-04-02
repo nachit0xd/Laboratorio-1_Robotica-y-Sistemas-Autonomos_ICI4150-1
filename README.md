@@ -23,6 +23,22 @@ La primera prueba era lograr que el robot móvil pudiera realizar una serie de m
 
 Estos movimientos se logran realizar en serie gracias a las instrucciones del `controlador_inicial`, donde el robot móvil inicia con una trayectoria recta durante 4 segundos (`v_l = 0.5 * MAX_SPEED` y `v_r = 0.5 * MAX_SPEED`, con `MAX_SPEED = 6.28` siendo la velocidad máxima del e-puck), luego hace un giro curvo durante otros 4 segundos (`v_l = 0.2 * MAX_SPEED` y `v_r = 0.8 * MAX_SPEED`, notar la diferencia de velocidades entre ruedas) y finalmente hace un giro sobre su propio eje (`v_l = -0.5 * MAX_SPEED` y `v_r =  0.5 * MAX_SPEED`). 
 
-Se puede visualizar esta prueba inicial en el archivo `demo_inicial.mp4` de la carpeta `media`.
+>Se puede visualizar esta prueba inicial en el archivo `demo_inicial.mp4` en la carpeta `media`.
 
-La segunda prueba es similar a la primera, pero ahora se introduce el factor del ruido.
+La segunda prueba es similar a la primera, pero ahora se introduce el factor del ruido. El ruido sistématico, o sesgo, se introduce para simular las variaciones impredecibles, como errores en los sensores, desgaste del sistema o **condiciones del entorno**. 
+
+El controlador `controlador_ruido` es similar a `controlador_inicial`, pero omitiendo el movimiento del giro sobre el eje final y añadiendo la variable `NOISE = 0.5`, que se puede ajustar según convenga (entre más alto el valor, mayor será la perturbación en el robot). 
+
+La perturbación del ruido se aplica a las ruedas izquierda y derecha en las líneas de código `v_l_ruidosa = v_l_ideal + random.gauss(0, NOISE)` y `v_r_ruidosa = v_r_ideal + random.gauss(0, NOISE)`, provocando que el robot móvil pareciera "temblar" mientras realiza el trayecto, incluso cuando se mantiene quieto. Esto, comparándolo con la prueba inicial, provoca que la trayectoria del robot sea menos directa pero más realista, desviándose de lo que podría ser una trayectoria ideal teórica, pero es lo que necesitamos si deseamos implementar un robot así en la vida real.
+
+>Se puede visualizar esta prueba con ruido en el archivo `demo_ruido.mp4` en la carpeta `media`.
+
+La última prueba tuvo como objetivo manipular las velocidades de las ruedas del robot para replicar distintas figuras, como un círculo e incluso un cuadrado. 
+
+Para ello, en el `controlador_desafío` se puede modificar la variable `FIGURA` para visualizar los diferentes movimientos que puede realizar el robot con este controlador (como una recta, curva, círculo, ocho o cuadrado). El caso más complejo correspondería al cuadrado, el cual requiere de ciertas variables (`tiempo_transcurrido`, `estado_cuadrado` y `ultimo_cambio_tiempo`) para realizar la figura:
+- Si el estado es un número par, avanza en línea recta por 2.5 segundos, después cambia de estado.
+- Si el estado es un número impar, gira aproximadamente 90 grados sobre su propio eje y vuelve a cambiar de estado.
+
+Esto provoca un ciclo entre estados que permite trazar la figura del cuadrado.
+
+>Se puede visualizar esta prueba del cuadrado en el archivo `demo_cuadrado.mp4` o las otras figuras en la carpeta `media`.
