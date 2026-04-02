@@ -58,4 +58,7 @@ R: Cuando las ruedas giran en sentido opuesto a la otra y con la misma magnitud 
 
 - ¿Qué tipo de movimiento permite dibujar un círculo?
 
-R: Para poder dibujar un círculo, 
+R: Para poder dibujar un círculo, ambas ruedas deben girar en el mismo sentido pero con velocidades constantes y diferentes entre sí. La trayectoria del robot será curva, y que dado cierto periodo de tiempo formará un círculo de 360 grados (el radio del círculo dependerá de la magnitud de la diferencia entre velocidades de las ruedas).
+
+## Conclusión
+En este repositorio se incluye todo lo necesario para probar un robot móvil diferencial en un entorno simulado (Webots), y en este documento se evidenció el análisis y explicación de las pruebas básicas realizadas sobre este robot en relación a trayectoria, movimiento y condiciones del entorno (ruido), adjuntando material visual (vídeos) que apoyan la explicación dada.
