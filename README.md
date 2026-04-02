@@ -16,3 +16,13 @@ Para probar los controladores de forma local, siga los siguientes pasos:
 6. Presione el botón de Play en la barra superior de Webots. Rebobine la simulación si desea empezar la simulación desde el principio.
 
 ## Resultados obtenidos
+La primera prueba era lograr que el robot móvil pudiera realizar una serie de movimientos básicos sobre la plataforma, mediante las instrucciones de un controlador sobre sus ruedas izquierda y derecha. Los movimientos eran: 
+- Movimiento recto ($v_r = v_l$)
+- Movimiento curvo ($v_r \neq v_l$)
+- Rotación en el lugar o sobre su propio eje ($v_r = -v_l$)
+
+Estos movimientos se logran realizar en serie gracias a las instrucciones del `controlador_inicial`, donde el robot móvil inicia con una trayectoria recta durante 4 segundos (`v_l = 0.5 * MAX_SPEED` y `v_r = 0.5 * MAX_SPEED`, con `MAX_SPEED = 6.28` siendo la velocidad máxima del e-puck), luego hace un giro curvo durante otros 4 segundos (`v_l = 0.2 * MAX_SPEED` y `v_r = 0.8 * MAX_SPEED`, notar la diferencia de velocidades entre ruedas) y finalmente hace un giro sobre su propio eje (`v_l = -0.5 * MAX_SPEED` y `v_r =  0.5 * MAX_SPEED`). 
+
+Se puede visualizar esta prueba inicial en el archivo `demo_inicial.mp4` de la carpeta `media`.
+
+La segunda prueba es similar a la primera, pero ahora se introduce el factor del ruido.
