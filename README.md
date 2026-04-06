@@ -1,4 +1,6 @@
 # Laboratorio 1 ICI4150-1: Controlador de un Robot Móvil Diferencial
+
+# Resumen introductorio
 Este repositorio contiene el desarrollo y los resultados del laboratorio 1 de Robótica y Sistemas Autónomos, enfocado en el control de un robot móvil diferencial (e-puck). 
 
 El entorno de simulación se realizó en Webots, plataforma que permitió la codificación de un controlador en lenguaje Python para manipular las velocidades y el ruido de las ruedas izquierda y derecha del robot móvil.
